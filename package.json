@@ -11,7 +11,7 @@
     "build:cjs": "babel src/* -d dist/cjs",
     "build:es": "cross-env BABEL_ENV=es babel src/* -d dist/es",
     "build:umd": "cross-env BABEL_ENV=umd babel src/* -d dist/umd",
-    "lint": "eslint src/*.mjs",
+    "lint": "eslint src/*.js",
     "postpublish": "",
     "prepublish": "",
     "test": ""
@@ -30,7 +30,19 @@
     "eslint": "^5.0.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4",
     "pre-commit": "^1.0.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "precommit": [
+    "lint"
+  ],
+  "bundlesize": [
+    {
+      "path": "./dist/*/*.js",
+      "maxSize": "2 kB"
+    }
+  ]
 }
