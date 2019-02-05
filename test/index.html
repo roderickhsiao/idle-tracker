@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Prefetch experiments</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic|Roboto+Mono:400,500|Material+Icons" rel="stylesheet">
+    <script src="https://polyfill.io/v3/polyfill.js"></script>
+</head>
+<body>
+    <header class="header">
+      <h1>Idle Tracker</h1>
+      <summary>
+        Javascript library to track browser idle.
+      </summary>
+    </header>
+    <section id="config">
+      <h3 class=>Configurations</h3>
+      <div>
+        <code>
+          timeout: 5 seconds
+        </code>
+        <code>
+          throttle: 500 mms;
+        </code>
+      </div>
+    </section>
+    <section class="demo">
+      <div class="desc">Video plays when browser is active;
+        Stops when browser is inactive.
+      </div>
+      <div id="status">
+        Current browser status:
+        <span id="status-change" class="active">ACTIVE</span>
+      </div>
+      <video
+        id="video-demo"
+        playInline
+        autoplay
+        muted
+        loop
+      >
+        <source
+          src="https://media3.giphy.com/media/1F2lmnASYUpMY/giphy.mp4"
+          type="video/mp4"
+        >
+
+        Sorry, your browser doesn't support embedded videos.
+    </video>
+
+    </section>
+    <script src="../dist/umd/index.js"></script>
+    <script src="../dist/umd/active-events.js"></script>
+    <script>
+      var Tracker = index.default;
+      var video = document.getElementById('video-demo');
+
+      var idleFunction = function (payload) {
+        var status = document.getElementById('status-change');
+
+        status.classList.toggle('active');
+        status.classList.toggle('inactive');
+
+        if (payload.idle) {
+          video.pause();
+          status.textContent = 'INACTIVE';
+        } else {
+          video.play();
+          status.textContent = 'ACTIVE';
+        }
+      }
+
+      var idelTracker = new Tracker({
+        timeout: 5000,
+        onIdleCallback: idleFunction,
+        events: activeEvents.default
+      });
+
+      idelTracker.start();
+    </script>
+    <script type="module">
+
+    </script>
+</body>
+</html>

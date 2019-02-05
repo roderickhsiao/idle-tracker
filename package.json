@@ -1,0 +1,36 @@
+{
+  "name": "idle-tracker",
+  "version": "0.0.1",
+  "description": "Javascript library to track browser inactivity",
+  "author": "Roderick Hsiao <roderickhsiao@gmail.com>",
+  "keywords": [],
+  "scripts": {
+    "bundlesize": "bundlesize",
+    "prebuild": "rm -rf dist",
+    "build": "yarn build:cjs && yarn build:es && yarn build:umd",
+    "build:cjs": "babel src/* -d dist/cjs",
+    "build:es": "cross-env BABEL_ENV=es babel src/* -d dist/es",
+    "build:umd": "cross-env BABEL_ENV=umd babel src/* -d dist/umd",
+    "lint": "eslint src/*.mjs",
+    "postpublish": "",
+    "prepublish": "",
+    "test": ""
+  },
+  "main": "dist/cjs/index.js",
+  "module": "dist/es/index.js",
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.3.0",
+    "@babel/plugin-transform-modules-umd": "^7.2.0",
+    "@babel/preset-env": "^7.3.1",
+    "babel-eslint": "^10.0.0",
+    "bundlesize": "^0.17.1",
+    "cross-env": "^5.2.0",
+    "eslint": "^5.0.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-babel": "^5.3.0",
+    "pre-commit": "^1.0.0"
+  },
+  "license": "MIT"
+}
