@@ -13,10 +13,10 @@ if [[ $GIT_URL == "" ]]; then
   echo "This project is not configured with a remote git repo".
   exit 1
 fi
-yarn build
 git checkout master
 git branch -D gh-pages
 git checkout -b gh-pages
+yarn build
 
 # inside this git repo we'll pretend to be a new user
 git config user.name "Roderick Hsiao"
