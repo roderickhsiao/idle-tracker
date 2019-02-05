@@ -145,7 +145,9 @@ code {
   font-style: italic;
   font-weight: 300;
 }
-
+#video-demo {
+  max-width: 100%;
+}
 #status {
   padding-bottom: 20px;
 }
