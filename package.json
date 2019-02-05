@@ -12,8 +12,8 @@
     "build:es": "cross-env BABEL_ENV=es babel src/* -d dist/es",
     "build:umd": "cross-env BABEL_ENV=umd babel src/* -d dist/umd",
     "lint": "eslint src/*.js",
-    "postpublish": "",
-    "prepublish": "",
+    "postpublish": "bash .script/publish_example.sh",
+    "prepublish": "yarn build",
     "test": ""
   },
   "main": "dist/cjs/index.js",
