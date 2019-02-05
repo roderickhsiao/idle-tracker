@@ -1,5 +1,5 @@
 <p align="center">
-    <h1>Idle Tracker</h1>
+  <h1>Idle Tracker</h1>
   <img src="https://media.giphy.com/media/z2YiftHRaPbWw/giphy.gif" width="400" alt="idle tracker">
   <br>
   <a href="https://www.npmjs.org/package/idle-tracker"><img src="https://img.shields.io/npm/v/idle-tracker.svg?style=flat" alt="npm"></a>
@@ -7,6 +7,8 @@
   <a href="https://www.npmjs.com/package/idle-tracker"><img src="https://img.shields.io/npm/dt/idle-tracker.svg" alt="downloads" ></a>
 </p>
 Javascript library to track browser idle status. (callback when user is idle)
+
+[Demo](https://roderickhsiao.github.io/idle-tracker/test/)
 
 ## Installation
 

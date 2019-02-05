@@ -133,9 +133,10 @@ code {
 }
 #config, .demo {
   border: 1px solid rgba(0,0,0,.2);
-  margin: 20px;
+  margin: 20px auto;
   padding: 0px 12px 8px;
   border-radius: 4px;
+  max-width: 400px;
 }
 
 .desc {
