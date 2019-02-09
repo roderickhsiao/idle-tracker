@@ -10,7 +10,7 @@ describe('Idle tracker tests', function () {
     await page.close();
   });
 
-  it('page should become inactive after timeout', async function () {
+  it('page should become inactive after timeout', async function (done) {
     const responseURLs = [];
     page.on('response', resp => {
       responseURLs.push(resp.url());
@@ -19,5 +19,6 @@ describe('Idle tracker tests', function () {
     expect(window.isActive).to.be(true);
     await page.waitFor(1000);
     expect(window.isActive).to.be(false);
+    done();
   });
 });
