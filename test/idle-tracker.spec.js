@@ -1,5 +1,7 @@
+const ip = require('ip');
+
 describe('Idle tracker tests', function () {
-  const server = `http://127.0.0.1:8080/test`;
+  const server = `${ip.address()}:8080/test`;
   let page;
 
   before(async function () {
