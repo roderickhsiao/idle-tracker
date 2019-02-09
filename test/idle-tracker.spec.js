@@ -16,8 +16,7 @@ describe('Idle tracker tests', function () {
       responseURLs.push(resp.url());
     });
     await page.goto(`${server}/test-case-inactive.html`);
-    expect(window.isActive).to.be(true);
-    await page.waitFor(1000);
+    await page.waitFor(2000);
     expect(window.isActive).to.be(false);
     done();
   });
