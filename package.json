@@ -18,8 +18,11 @@
     "lint": "eslint src/*.js",
     "postpublish": "bash .scripts/publish_example.sh",
     "prepublish": "yarn build",
-    "start": "http-server . & sleep 30",
-    "test": "yarn run build && mocha test/setup.js --recursive test"
+    "start": "http-server . &",
+    "pretest": "yarn start",
+    "test": "yarn run build && mocha test/setup.js --recursive test",
+    "posttest": "pkill -f http-server"
+
   },
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
