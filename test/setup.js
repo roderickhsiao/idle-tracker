@@ -8,7 +8,8 @@ const globalVariables = pick(global, ['browser', 'expect']);
 const opts = {
   headless: true,
   slowMo: 100,
-  timeout: 20000
+  timeout: 20000,
+  args: ['--no-sandbox', '--disable-setuid-sandbox']
 };
 
 // expose variables
