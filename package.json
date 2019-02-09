@@ -18,7 +18,7 @@
     "lint": "eslint src/*.js",
     "postpublish": "bash .scripts/publish_example.sh",
     "prepublish": "yarn build",
-    "start": "http-server . & sleep 3",
+    "start": "http-server . & sleep 30",
     "test": "yarn run build && mocha test/setup.js --recursive test"
   },
   "main": "dist/cjs/index.js",
