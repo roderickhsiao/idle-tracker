@@ -3,6 +3,10 @@
   "version": "0.0.2",
   "description": "Javascript library to track browser inactivity",
   "author": "Roderick Hsiao <roderickhsiao@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/roderickhsiao/idle-tracker.git"
+  },
   "keywords": [],
   "scripts": {
     "bundlesize": "bundlesize",
@@ -14,7 +18,8 @@
     "lint": "eslint src/*.js",
     "postpublish": "bash .scripts/publish_example.sh",
     "prepublish": "yarn build",
-    "test": ""
+    "start": "http-server .",
+    "test": "yarn run build && mocha test/setup.js --recursive test"
   },
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
@@ -25,6 +30,7 @@
     "@babel/preset-env": "^7.3.1",
     "babel-eslint": "^10.0.0",
     "bundlesize": "^0.17.1",
+    "chai": "^4.2.0",
     "cross-env": "^5.2.0",
     "eslint": "^5.0.0",
     "eslint-config-airbnb": "^17.1.0",
@@ -32,6 +38,9 @@
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
+    "http-server": "^0.11.1",
+    "lodash": "^4.17.11",
+    "mocha": "^5.2.0",
     "pre-commit": "^1.0.0",
     "puppeteer": "^1.12.1"
   },
@@ -44,8 +53,5 @@
       "path": "./dist/*/*.js",
       "maxSize": "2 kB"
     }
-  ],
-  "dependencies": {
-    "jest": "^24.1.0"
-  }
+  ]
 }
