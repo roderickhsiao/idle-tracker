@@ -38,7 +38,6 @@
       window.isActive = true;
 
       var idleFunction = function (payload) {
-
         if (payload.idle) {
           window.isActive = false;
         } else {
@@ -46,14 +45,14 @@
         }
       }
 
-      var idelTracker = new Tracker({
+      window.idleTracker = new Tracker({
         timeout: 500,
         onIdleCallback: idleFunction,
         events: activeEvents.default,
         throttle: 100
       });
 
-      idelTracker.start();
+      window.idleTracker.start();
     </script>
     <script type="module">
 
