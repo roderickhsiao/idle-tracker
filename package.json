@@ -20,7 +20,7 @@
     "prepublish": "yarn build",
     "start": "http-server . &",
     "pretest": "yarn start",
-    "test": "yarn run build && mocha test/setup.js --recursive test",
+    "test": "yarn run build && mocha test/setup.js --recursive test --timeout 5000",
     "posttest": "pkill -f http-server"
 
   },
