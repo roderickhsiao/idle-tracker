@@ -20,7 +20,7 @@
       <h3 class=>Configurations</h3>
       <div>
         <code>
-          timeout: 0.5 seconds
+          timeout: 1 seconds
         </code>
         <code>
           throttle: 100 mms;
@@ -46,7 +46,7 @@
       }
 
       var idleTracker = new Tracker({
-        timeout: 500,
+        timeout: 1000,
         onIdleCallback: idleFunction,
         events: activeEvents.default,
         throttle: 100
