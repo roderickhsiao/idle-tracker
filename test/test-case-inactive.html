@@ -45,14 +45,14 @@
         }
       }
 
-      window.idleTracker = new Tracker({
+      var idleTracker = new Tracker({
         timeout: 500,
         onIdleCallback: idleFunction,
         events: activeEvents.default,
         throttle: 100
       });
 
-      window.idleTracker.start();
+      idleTracker.start();
     </script>
     <script type="module">
 

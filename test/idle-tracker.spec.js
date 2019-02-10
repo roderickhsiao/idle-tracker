@@ -12,19 +12,13 @@ describe('Idle tracker tests', () => {
     await page.close();
   });
 
-  it('page should become inactive after timeout', async () => {
+  it('page should become inactive after timeout and reactivate after events', async () => {
     await page.goto(`${server}/test-case-inactive.html`);
     await page.waitFor(1000);
-    const isActive = await page.evaluate(() => window.isActive);
+    let isActive = await page.evaluate(() => window.isActive);
     expect(isActive).to.be.false;
-  });
-
-  it('page should become active after active events', async () => {
-    await page.goto(`${server}/test-case-inactive.html`);
-    await page.waitFor(1000);
-    // mouse move
     await page.mouse.move(100, 100);
-    const isActive = await page.evaluate(() => window.isActive);
+    isActive = await page.evaluate(() => window.isActive);
     expect(isActive).to.be.true;
   });
 });
