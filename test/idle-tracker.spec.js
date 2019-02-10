@@ -10,6 +10,7 @@ describe('Idle tracker tests', () => {
     await page.waitFor(1000);
     const isActive = await page.evaluate(() => window.isActive);
     expect(isActive).to.be.false;
+    await page.close();
   });
 
   it('page should become active after active events', async () => {
