@@ -56,4 +56,5 @@ jobs:
 
       # run tests!
       - run: yarn test
+      - run: yarn stop-test-server
       - run: yarn bundlesize
