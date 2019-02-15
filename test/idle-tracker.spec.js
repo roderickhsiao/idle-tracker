@@ -22,7 +22,7 @@ describe('Idle tracker tests', () => {
     expect(isActive).to.be('false');
     await page.mouse.move(100, 100);
     await page.waitFor(50);
-    let isActive = await page.evaluate(() => {
+    isActive = await page.evaluate(() => {
       const el = document.getElementById('active-status');
       return el.innerHTML;
     });
