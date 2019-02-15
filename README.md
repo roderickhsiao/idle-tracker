@@ -5,6 +5,8 @@
   <a href="https://www.npmjs.org/package/idle-tracker"><img src="https://img.shields.io/npm/v/idle-tracker.svg?style=flat" alt="npm"></a>
   <a href="https://unpkg.com/idle-tracker"><img src="https://img.badgesize.io/https://unpkg.com/idle-tracker/dist/es/index.js?compression=gzip" alt="gzip size"></a>
   <a href="https://www.npmjs.com/package/idle-tracker"><img src="https://img.shields.io/npm/dt/idle-tracker.svg" alt="downloads" ></a>
+  <a href="https://circleci.com/gh/roderickhsiao/idle-tracker"><img src="https://circleci.com/gh/roderickhsiao/idle-tracker.svg?style=svg" alt="circleci"></a>
+
 </p>
 Javascript library to track browser idle status. (callback when user is idle)
 
