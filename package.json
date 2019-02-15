@@ -21,7 +21,7 @@
     "start": "http-server . &",
     "pretest": "yarn start",
     "test": "yarn run build && mocha test/setup.js --recursive test --timeout 10000",
-    "posttest": "pkill -f http-server"
+    "posttest": "pkill -f http-server || true"
 
   },
   "main": "dist/cjs/index.js",
