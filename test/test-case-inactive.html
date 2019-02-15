@@ -23,7 +23,7 @@
           timeout: 1 seconds
         </code>
         <code>
-          throttle: 100 mms;
+          throttle: 50 mms;
         </code>
       </div>
     </section>
@@ -31,6 +31,7 @@
       <div class="desc">Test case to see active state
       </div>
     </section>
+    <div id="active-status"></div>
     <script src="../dist/umd/index.js"></script>
     <script src="../dist/umd/active-events.js"></script>
     <script>
@@ -38,10 +39,13 @@
       window.isActive = true;
 
       var idleFunction = function (payload) {
+        const ele = document.getElementById('active-status');
         if (payload.idle) {
           window.isActive = false;
+          el.innerHTML = 'false';
         } else {
           window.isActive = true;
+          el.innerHTML = 'true';
         }
       }
 
