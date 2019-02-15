@@ -7,7 +7,15 @@
     "type": "git",
     "url": "https://github.com/roderickhsiao/idle-tracker.git"
   },
-  "keywords": [],
+  "keywords": [
+    "browser idle",
+    "browser inactive",
+    "idle tracker",
+    "idle",
+    "inactive",
+    "inactivity",
+    "timer"
+  ],
   "scripts": {
     "bundlesize": "bundlesize",
     "prebuild": "rm -rf dist",
