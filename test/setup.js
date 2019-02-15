@@ -8,7 +8,8 @@ const globalVariables = pick(global, ['browser', 'expect']);
 const opts = {
   headless: true,
   timeout: 20000,
-  args: ['--no-sandbox', '--disable-setuid-sandbox']
+  args: ['--no-sandbox', '--disable-setuid-sandbox'],
+  slowMo: 250
 };
 
 before(async () => {

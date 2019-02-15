@@ -21,7 +21,7 @@ describe('Idle tracker tests', () => {
     });
     expect(isActive).to.equal('false');
     await page.mouse.move(100, 100);
-    await page.waitFor(50);
+    await page.waitFor(100);
     isActive = await page.evaluate(() => {
       const el = document.getElementById('active-status');
       return el.innerHTML;

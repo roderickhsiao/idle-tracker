@@ -31,7 +31,6 @@
       <div class="desc">Test case to see active state
       </div>
     </section>
-    <div id="active-status"></div>
     <script src="../dist/umd/index.js"></script>
     <script src="../dist/umd/active-events.js"></script>
     <script>
@@ -39,7 +38,7 @@
       window.isActive = true;
 
       var idleFunction = function (payload) {
-        const ele = document.getElementById('active-status');
+        const el = document.getElementById('active-status');
         if (payload.idle) {
           window.isActive = false;
           el.innerHTML = 'false';
@@ -61,5 +60,6 @@
     <script type="module">
 
     </script>
+    <div id="active-status">false</div>
 </body>
 </html>
