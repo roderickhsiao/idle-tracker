@@ -9,7 +9,7 @@ describe('Idle tracker tests', () => {
   });
 
   after(async () => {
-    await page.close();
+    // await page.close();
   });
 
   it('page should become inactive after timeout and reactivate after events', async () => {
