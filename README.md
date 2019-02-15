@@ -8,7 +8,7 @@
   <a href="https://circleci.com/gh/roderickhsiao/idle-tracker"><img src="https://circleci.com/gh/roderickhsiao/idle-tracker.svg?style=svg" alt="circleci"></a>
 
 </p>
-Javascript library to track browser idle status. (callback when user is idle)
+Javascript library to track browser idle status. (callback when user is idle).
 
 [Demo](https://roderickhsiao.github.io/idle-tracker/test/)
 
@@ -34,6 +34,8 @@ import IdleTracker from 'idle-tracker';
 const idleTracker = new IdleTracker(options);
 
 idleTracker.start(); // start tracker
+
+idleTracker.end(); // stop tracker and release memory
 ```
 
 #### Constructor options
