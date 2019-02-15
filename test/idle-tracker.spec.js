@@ -19,13 +19,13 @@ describe('Idle tracker tests', () => {
       const el = document.getElementById('active-status');
       return el.innerHTML;
     });
-    expect(isActive).to.be('false');
+    expect(isActive).to.equal('false');
     await page.mouse.move(100, 100);
     await page.waitFor(50);
     isActive = await page.evaluate(() => {
       const el = document.getElementById('active-status');
       return el.innerHTML;
     });
-    expect(isActive).to.be('true');
+    expect(isActive).to.equal('true');
   });
 });
