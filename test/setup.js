@@ -9,7 +9,7 @@ const opts = {
   headless: true,
   timeout: 20000,
   args: ['--no-sandbox', '--disable-setuid-sandbox'],
-  slowMo: 250
+  slowMo: 100
 };
 
 before(async () => {
