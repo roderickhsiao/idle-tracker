@@ -14,6 +14,8 @@ Javascript library to track browser idle status. (callback when user is idle).
 
 ## Installation
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/roderickhsiao/idle-tracker.svg)](https://greenkeeper.io/)
+
 via [yarn](https://yarnpkg.com/en/docs)
 
 ```
