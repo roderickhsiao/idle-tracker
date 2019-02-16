@@ -19,10 +19,11 @@
   "scripts": {
     "bundlesize": "bundlesize",
     "prebuild": "rm -rf dist",
-    "build": "yarn build:cjs && yarn build:es && yarn build:umd",
+    "build": "yarn build:cjs && yarn build:es && yarn build:umd && yarn build:next",
     "build:cjs": "babel src/* -d dist/cjs",
     "build:es": "cross-env BABEL_ENV=es babel src/* -d dist/es",
     "build:umd": "cross-env BABEL_ENV=umd babel src/* -d dist/umd",
+    "build:next": "cross-env BABEL_ENV=next babel src/* -d dist/next",
     "lint": "eslint src/*.js",
     "postpublish": "bash .scripts/publish_example.sh",
     "prepublish": "yarn build",

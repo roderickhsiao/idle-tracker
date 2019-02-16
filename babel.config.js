@@ -1,7 +1,25 @@
 module.exports = {
-  presets: ['@babel/preset-env'],
+  presets: [
+    [
+      '@babel/preset-env',
+      {
+        loose: true
+      }
+    ]
+  ],
   plugins: ['@babel/plugin-proposal-class-properties'],
   env: {
+    next: {
+      presets: [
+        [
+          '@babel/preset-env',
+          {
+            modules: false,
+            loose: true
+          }
+        ]
+      ]
+    },
     es: {
       presets: [
         [
@@ -9,7 +27,8 @@ module.exports = {
           {
             targets: {
               esmodules: true
-            }
+            },
+            loose: true
           }
         ]
       ]
@@ -19,7 +38,8 @@ module.exports = {
         [
           '@babel/preset-env',
           {
-            modules: 'umd'
+            modules: 'umd',
+            loose: true
           }
         ]
       ]
