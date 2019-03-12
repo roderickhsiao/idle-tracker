@@ -26,8 +26,10 @@ class IdleTracker {
 
   start = ({ onIdleCallback } = {}) => {
     this.callback = onIdleCallback || this.callback;
+    this.handleEvent = this.handleEvent.bind(this);
+
     this.listeners = this.events.map(eventName => {
-      document.addEventListener(eventName, this.handleEvent.bind(this), false);
+      document.addEventListener(eventName, this.handleEvent, false);
       return eventName;
     });
 
