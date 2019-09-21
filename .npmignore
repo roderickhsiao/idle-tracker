@@ -1,5 +1,8 @@
-.scripts
-test
+.circleci
 .eslintrc
 .gitignore
+.npmignore
+.scripts
 babel.config.js
+test
+yarn.lock
