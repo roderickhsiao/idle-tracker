@@ -54,7 +54,7 @@
     "lodash": "^4.17.11",
     "mocha": "^6.0.0",
     "pre-commit": "^1.0.0",
-    "puppeteer": "^1.12.1"
+    "puppeteer": "^2.0.0"
   },
   "license": "MIT",
   "precommit": [
