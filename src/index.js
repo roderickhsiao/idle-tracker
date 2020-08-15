@@ -1,8 +1,14 @@
 import ACTIVE_EVENTS from './active-events';
+import supportPassiveEvent from './supportPassiveEvent';
 
 const DEFAULT_CALLBACK = () => undefined;
 const DEFAULT_THROTTLE = 500;
 const DEFAULT_TIMEOUT = 30000;
+
+const defaultEventOption = {
+  capture: false,
+  passive: false
+}
 
 class IdleTracker {
   constructor({
@@ -29,7 +35,7 @@ class IdleTracker {
     this.handleEvent = this.handleEvent.bind(this);
 
     this.listeners = this.events.map(eventName => {
-      document.addEventListener(eventName, this.handleEvent, false);
+      document.addEventListener(eventName, this.handleEvent, supportPassiveEvent ? defaultEventOption : false);
       return eventName;
     });
 
@@ -89,7 +95,7 @@ class IdleTracker {
   end = () => {
     if (this.listeners.length) {
       this.listeners.forEach(
-        eventName => document.removeEventListener(eventName, this.handleEvent)
+        eventName => document.removeEventListener(eventName, this.handleEvent, supportPassiveEvent ? defaultEventOption : false)
       );
     }
     this.clearTimer(this.timer);
