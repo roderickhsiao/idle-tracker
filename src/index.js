@@ -8,7 +8,7 @@ const DEFAULT_TIMEOUT = 30000;
 const defaultEventOption = {
   capture: false,
   passive: false
-}
+};
 
 class IdleTracker {
   constructor({
@@ -35,7 +35,11 @@ class IdleTracker {
     this.handleEvent = this.handleEvent.bind(this);
 
     this.listeners = this.events.map(eventName => {
-      document.addEventListener(eventName, this.handleEvent, supportPassiveEvent ? defaultEventOption : false);
+      document.addEventListener(
+        eventName,
+        this.handleEvent,
+        supportPassiveEvent ? defaultEventOption : false
+      );
       return eventName;
     });
 
@@ -50,7 +54,7 @@ class IdleTracker {
   handleEvent = e => {
     const time = Date.now();
 
-    if ((time - this.state.lastActive < this.throttleTime)) {
+    if (time - this.state.lastActive < this.throttleTime) {
       // throttle on change
       return;
     }
@@ -94,9 +98,11 @@ class IdleTracker {
 
   end = () => {
     if (this.listeners.length) {
-      this.listeners.forEach(
-        eventName => document.removeEventListener(eventName, this.handleEvent, supportPassiveEvent ? defaultEventOption : false)
-      );
+      this.listeners.forEach(eventName => document.removeEventListener(
+        eventName,
+        this.handleEvent,
+        supportPassiveEvent ? defaultEventOption : false
+      ));
     }
     this.clearTimer(this.timer);
   };

@@ -5,11 +5,15 @@ if (typeof window !== 'undefined') {
     const options = Object.defineProperty({}, 'passive', {
       get() {
         passiveSupported = true;
+        return false;
       }
     });
 
     window.addEventListener('test', null, options);
-  } catch (err) {} // eslint-disable-line no-empty
+    window.removeEventListener('test', null, options);
+  } catch (err) {
+    passiveSupported = false;
+  }
 }
 
 export default passiveSupported;
