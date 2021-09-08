@@ -65,7 +65,7 @@ class IdleTracker {
 
     // only evoke callback when value change
     if (this.state.idle) {
-      this.callback({ idle: false });
+      this.callback({ idle: false, event: e });
     }
 
     this.state.idle = false;
