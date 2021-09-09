@@ -10,7 +10,7 @@ Javascript library to track browser idle status. (callback when user is idle).
 
 [Demo](https://roderickhsiao.github.io/idle-tracker/test/)
 
-** Browser might the function natively in the future, see [Idle Detection API](https://web.dev/idle-detection/)
+** Browser might support this function natively in the future, see [Idle Detection API](https://web.dev/idle-detection/)
 
 ## Installation
 
@@ -43,5 +43,5 @@ idleTracker.end(); // stop tracker and release memory
 | Options Name   | Type     | Default | Description                                                                           |
 | -------------- | -------- | ------- | ------------------------------------------------------------------------------------- |
 | timeout (ms)   | number   | 30000   | timeout to count as idle                                                              |
-| onIdleCallback | Function | noop    | Function to be called when idle status change, payload will be `{ idle: true/false }` |
+| onIdleCallback | Function | noop    | Function to be called when idle status change, payload will be `{ idle: true/false }`, with optional `event` payload |
 | throttle       | number   | 500     | throttle rate of callback                                                             |

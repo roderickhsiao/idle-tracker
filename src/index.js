@@ -60,19 +60,22 @@ class IdleTracker {
     }
 
     if (e.type === 'mousemove' || e.type === 'touchmove') {
-      this.resetTimer();
+      this.resetTimer(e);
     }
 
     // only evoke callback when value change
     if (this.state.idle) {
-      this.callback({ idle: false, event: e });
+      this.callback({
+        event: e,
+        idle: false
+      });
     }
 
     this.state.idle = false;
     this.resetTimer();
   };
 
-  resetTimer = () => {
+  resetTimer = (e) => {
     const time = Date.now();
     this.clearTimer(this.timer);
 
@@ -80,10 +83,10 @@ class IdleTracker {
 
     this.timer = setTimeout(() => {
       if (!this.state.idle) {
-        this.callback({ idle: true });
+        this.callback({ event: e, idle: true });
       }
       this.state.idle = true;
-      this.resetTimer();
+      this.resetTimer(e);
     }, this.timeout);
   };
 
