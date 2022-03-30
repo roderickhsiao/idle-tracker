@@ -1,4 +1,4 @@
-const ACTIVE_EVENTS = [
+const ACTIVE_EVENTS: Event['type'][] = [
   'change',
   'keydown',
   'mousedown',
@@ -10,6 +10,7 @@ const ACTIVE_EVENTS = [
   'touchend',
   'touchmove',
   'touchstart',
-  'visibilitychange'
+  'visibilitychange',
 ];
+
 export default ACTIVE_EVENTS;
