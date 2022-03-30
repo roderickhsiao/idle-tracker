@@ -25,6 +25,7 @@ git config user.email "roderickhsiao@gmail.com"
 # The first and only commit to this new Git repo contains all the
 # files present with the commit message "Deploy to GitHub Pages".
 git add .
+git add -f dist
 git commit -m "Deploy Example to GitHub Pages"
 
 # Force push from the current repo's main branch to the remote
