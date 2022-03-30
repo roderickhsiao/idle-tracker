@@ -20,6 +20,7 @@
     "bundlesize": "bundlesize",
     "prebuild": "rm -rf dist",
     "build": "yarn build:cjs && yarn build:es && yarn build:umd && yarn build:next && yarn tsc --build tsconfig.publish.json",
+    "build-gh-pages": "yarn build:cjs && yarn build:es && yarn build:umd && yarn build:next && yarn tsc --build tsconfig.json",
     "build:cjs": "NODE_ENV=production babel --extensions .ts src/* -d dist/cjs",
     "build:es": "cross-env NODE_ENV=production BABEL_ENV=es babel --extensions .ts src/* -d dist/es",
     "build:umd": "cross-env NODE_ENV=production BABEL_ENV=umd babel --extensions .ts src/* -d dist/umd",

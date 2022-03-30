@@ -16,7 +16,7 @@ fi
 git checkout main
 git branch -D gh-pages
 git checkout -b gh-pages
-yarn build
+yarn build-gh-pages
 
 # inside this git repo we'll pretend to be a new user
 git config user.name "Roderick Hsiao"
