@@ -7,15 +7,38 @@ const DEFAULT_TIMEOUT = 30000;
 
 const defaultEventOption = {
   capture: false,
-  passive: false
+  passive: false,
 };
 
 class IdleTracker {
+  callback: ({
+    idle,
+    event,
+  }: {
+    idle: boolean;
+    event?: Event | undefined;
+  }) => void;
+
+  events: Array<Event['type']>;
+
+  listeners: Array<Event['type']>;
+
+  throttleTime: number;
+
+  timeout: number;
+
+  timer: ReturnType<typeof setTimeout> | null;
+
+  state: {
+    idle: boolean;
+    lastActive: number;
+  };
+
   constructor({
     timeout = DEFAULT_TIMEOUT,
     onIdleCallback = DEFAULT_CALLBACK,
     events = ACTIVE_EVENTS,
-    throttle = DEFAULT_THROTTLE
+    throttle = DEFAULT_THROTTLE,
   }) {
     this.callback = onIdleCallback;
     this.events = events;
@@ -26,19 +49,21 @@ class IdleTracker {
 
     this.state = {
       idle: false,
-      lastActive: 0
+      lastActive: 0,
     };
   }
 
-  start = ({ onIdleCallback } = {}) => {
+  start = ({
+    onIdleCallback,
+  }: { onIdleCallback?: VoidFunction | undefined } = {}) => {
     this.callback = onIdleCallback || this.callback;
     this.handleEvent = this.handleEvent.bind(this);
 
-    this.listeners = this.events.map(eventName => {
+    this.listeners = this.events.map((eventName) => {
       document.addEventListener(
         eventName,
         this.handleEvent,
-        supportPassiveEvent ? defaultEventOption : false
+        supportPassiveEvent ? defaultEventOption : false,
       );
       return eventName;
     });
@@ -51,7 +76,7 @@ class IdleTracker {
     this.resetTimer();
   };
 
-  handleEvent = e => {
+  handleEvent = (e: Event) => {
     const time = Date.now();
 
     if (time - this.state.lastActive < this.throttleTime) {
@@ -67,7 +92,7 @@ class IdleTracker {
     if (this.state.idle) {
       this.callback({
         event: e,
-        idle: false
+        idle: false,
       });
     }
 
@@ -75,9 +100,9 @@ class IdleTracker {
     this.resetTimer();
   };
 
-  resetTimer = (e) => {
+  resetTimer = (e?: Event) => {
     const time = Date.now();
-    this.clearTimer(this.timer);
+    this.clearTimer();
 
     this.state.lastActive = time;
 
@@ -92,22 +117,22 @@ class IdleTracker {
 
   isIdle = () => this.state.idle;
 
-  clearTimer = timer => {
-    if (timer) {
-      clearTimeout(timer);
-      timer = null;
+  clearTimer = () => {
+    if (this.timer) {
+      clearTimeout(this.timer);
+      this.timer = null;
     }
   };
 
   end = () => {
     if (this.listeners.length) {
-      this.listeners.forEach(eventName => document.removeEventListener(
+      this.listeners.forEach((eventName) => document.removeEventListener(
         eventName,
         this.handleEvent,
-        supportPassiveEvent ? defaultEventOption : false
+        supportPassiveEvent ? defaultEventOption : false,
       ));
     }
-    this.clearTimer(this.timer);
+    this.clearTimer();
   };
 }
 

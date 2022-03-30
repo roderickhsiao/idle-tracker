@@ -1,4 +1,4 @@
-let passiveSupported = false; // eslint-disable-line import/no-mutable-exports
+let passiveSupported = false; // eslint-disable-line  import/no-mutable-exports
 
 if (typeof window !== 'undefined') {
   try {
@@ -6,11 +6,12 @@ if (typeof window !== 'undefined') {
       get() {
         passiveSupported = true;
         return false;
-      }
+      },
     });
+    const func = () => undefined;
 
-    window.addEventListener('test', null, options);
-    window.removeEventListener('test', null, options);
+    window.addEventListener('test', func, options);
+    window.removeEventListener('test', func, options);
   } catch (err) {
     passiveSupported = false;
   }
