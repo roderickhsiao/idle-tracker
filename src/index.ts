@@ -1,9 +1,14 @@
 import ACTIVE_EVENTS from './active-events';
 import supportPassiveEvent from './supportPassiveEvent';
 
-const DEFAULT_CALLBACK = () => undefined;
+const DEFAULT_CALLBACK = (_ : CallbackPayload) => {};
 const DEFAULT_THROTTLE = 500;
 const DEFAULT_TIMEOUT = 30000;
+
+interface CallbackPayload {
+  idle: boolean,
+  event?: Event
+}
 
 const defaultEventOption = {
   capture: false,
@@ -14,10 +19,7 @@ class IdleTracker {
   callback: ({
     idle,
     event,
-  }: {
-    idle: boolean;
-    event?: Event | undefined;
-  }) => void;
+  }: CallbackPayload) => void;
 
   events: Array<Event['type']>;
 
