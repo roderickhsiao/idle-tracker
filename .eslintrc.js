@@ -9,6 +9,12 @@ module.exports = {
     'no-plusplus': 0,
     'no-underscore-dangle': 0,
     'no-use-before-define': 0,
+    '@typescript-eslint/no-unused-vars': ['error', {
+      vars: 'all',
+      args: 'after-used',
+      ignoreRestSiblings: true,
+      argsIgnorePattern: '^_'
+    }],
   },
   env: {
     browser: true,
